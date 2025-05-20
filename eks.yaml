@@ -9,4 +9,12 @@ nodeGroups:
   - name: expense
     instanceType: m5.large
     desiredCapacity: 3
-    spot: true
+    instancesDistribution:
+      maxPrice: "0.0735"
+      instanceTypes: ["t3.medium", "t3a.medium"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 2
+    iam:
+      withAddonPolicies:
+        autoScaler: true
