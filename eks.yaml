@@ -10,7 +10,7 @@ nodeGroups:
     instanceType: m5.large
     desiredCapacity: 3
     instancesDistribution:
-      maxPrice: "0.0735"
+      maxPrice: 0.05
       instanceTypes: ["t3.medium", "t3a.medium"]
       onDemandBaseCapacity: 0
       onDemandPercentageAboveBaseCapacity: 0
