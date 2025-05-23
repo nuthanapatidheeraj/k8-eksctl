@@ -2,16 +2,18 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: expense-1
+  name: expense-cluster
   region: us-east-1
 
 nodeGroups:
   - name: spot-ng
-    instanceType: m5.large
+    instanceType: t3.medium
     desiredCapacity: 1
     minSize: 1
     maxSize: 1
-    spot: true
-    ssh:
-      allow: true
-
+    instancesDistribution:
+      maxPrice: 0.073
+      instanceTypes: ["t3.medium", "t3a.medium", "t2.medium"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 2
