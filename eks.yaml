@@ -5,9 +5,13 @@ metadata:
   name: expense-1
   region: us-east-1
 
-managedNodeGroups:
-  - name: expense
+nodeGroups:
+  - name: spot-ng
     instanceType: m5.large
-    desiredCapacity: 3
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 1
     spot: true
+    ssh:
+      allow: true
 
