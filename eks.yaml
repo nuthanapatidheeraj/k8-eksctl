@@ -5,12 +5,11 @@ metadata:
   name: expense-cluster
   region: us-east-1
 
-managedNodeGroups:
+nodeGroups:
   - name: spot-ng
-    desiredCapacity: 1
     minSize: 1
     maxSize: 2
-    instanceType: mixed
+    desiredCapacity: 1
     instancesDistribution:
       instanceTypes: ["t3.medium", "t3a.medium", "t2.medium"]
       onDemandBaseCapacity: 0
