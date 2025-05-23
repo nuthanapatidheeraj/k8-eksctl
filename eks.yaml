@@ -2,20 +2,12 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: my-eks-cluster
-  region: us-west-2
+  name: expense-1
+  region: us-east-1
 
-nodeGroups:
-  - name: spot-ng
-    desiredCapacity: 2
-    minSize: 1
-    maxSize: 3
-    instancesDistribution:
-      maxPrice: 0.0735
-      instanceTypes: ["t3.medium", "t3a.medium"]
-      onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 0
-      spotInstancePools: 2
-    iam:
-      withAddonPolicies:
-        autoScaler: true
+managedNodeGroups:
+  - name: expense
+    instanceType: m5.large
+    desiredCapacity: 3
+    spot: true
+
